@@ -7,8 +7,8 @@ function App() {
   const [books, setBooks] = useState([]);
 
    useEffect(() => {
-    BooksAPI.getAll().then((books) => setBooks(books));
-  }, []);
+    const getBooks
+   })
 
   const [query, setQuery] = useState("");
 
