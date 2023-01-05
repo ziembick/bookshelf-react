@@ -75,7 +75,16 @@ function App() {
     },
   ]);
 
-
+  function moveBook(book, shelf) {
+    setBooks((prevBooks) =>
+      prevBooks.map((b) => {
+        if (b.id === book.id) {
+          return { ...b, shelf };
+        }
+        return b;
+      })
+    );
+  }
 
   const [showSearchPage, setShowSearchpage] = useState(false);
 
