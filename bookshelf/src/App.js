@@ -17,9 +17,9 @@ function App() {
   };
 
   const showBooks =
-    query === ""
-      ? books
-      : books.filter((c) => c.title.toLowerCase().includes(query));
+  query === ""
+    ? books
+    : books.filter((c) => c.title.toLowerCase().includes(query) || c.authors.join(', ').toLowerCase().includes(query));
 
   function moveBook(book, shelf) {
     setBooks((prevBooks) =>
