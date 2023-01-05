@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import Book from "./Book";
-import * as BooksAPI from './BooksAPI'; 
+import * as BooksAPI from "./BooksAPI";
 
 function App() {
   const [books, setBooks] = useState([
@@ -77,6 +77,16 @@ function App() {
     },
   ]);
 
+  const [query, setQuery] = useState("");
+
+  const updateQuery = (query) => {
+    setQuery(query.trim());
+  };
+
+  const showBooks =
+    query === ""
+      ? books
+      : books.filter((c) => c.title.toLowerCase().includes(query));
 
   function moveBook(book, shelf) {
     setBooks((prevBooks) =>
@@ -106,11 +116,23 @@ function App() {
               <input
                 type="text"
                 placeholder="Search by title, author, or ISBN"
+                value={query}
+                onChange={(event) => updateQuery(event.target.value)}
               />
             </div>
           </div>
           <div className="search-books-results">
-            <ol className="books-grid"></ol>
+            <ol className="books-grid">
+            {showBooks.map((book) => (
+                <Book
+                  key={book.id}
+                  book={book}
+                  shelf={book.shelf}
+                  onMoveBook={moveBook}
+                />
+              ))}
+
+            </ol>
           </div>
         </div>
       ) : (
@@ -123,9 +145,9 @@ function App() {
               <div className="bookshelf">
                 <h2 className="bookshelf-title">Currently Reading</h2>
                 <div className="bookshelf-books">
-                <ol className="books-grid">
+                  <ol className="books-grid">
                     {books
-                      .filter((book) => book.shelf === 'currentlyReading')
+                      .filter((book) => book.shelf === "currentlyReading")
                       .map((book) => (
                         <Book
                           key={book.id}
@@ -140,9 +162,9 @@ function App() {
               <div className="bookshelf">
                 <h2 className="bookshelf-title">Want to Read</h2>
                 <div className="bookshelf-books">
-                <ol className="books-grid">
+                  <ol className="books-grid">
                     {books
-                      .filter((book) => book.shelf === 'wantToRead')
+                      .filter((book) => book.shelf === "wantToRead")
                       .map((book) => (
                         <Book
                           key={book.id}
@@ -157,9 +179,9 @@ function App() {
               <div className="bookshelf">
                 <h2 className="bookshelf-title">Read</h2>
                 <div className="bookshelf-books">
-                <ol className="books-grid">
+                  <ol className="books-grid">
                     {books
-                      .filter((book) => book.shelf === 'read')
+                      .filter((book) => book.shelf === "read")
                       .map((book) => (
                         <Book
                           key={book.id}
