@@ -17,7 +17,8 @@ function App() {
       })
       setBooks(res)
     }
-   })
+    getBooks()
+   }, [])
 
   const [query, setQuery] = useState("");
 
