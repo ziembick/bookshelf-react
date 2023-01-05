@@ -40,6 +40,7 @@ function App() {
         return b;
       })
     );
+    localStorage.setItem(book.id, shelf)
   }
 
   const [showSearchPage, setShowSearchpage] = useState(false);
