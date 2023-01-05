@@ -43,6 +43,12 @@ function App() {
     localStorage.setItem(book.id, shelf)
   }
 
+  useEffect(() => {
+    books.forEach((book) => {
+      localStorage.setItem(book.id, book.shelf)
+    })
+  }, [books])
+
   const [showSearchPage, setShowSearchpage] = useState(false);
 
   return (
