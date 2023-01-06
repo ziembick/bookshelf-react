@@ -61,12 +61,12 @@ function App() {
       {showSearchPage ? (
         <div className="search-books">
           <div className="search-books-bar">
-            <a
+            <Link
               className="close-search"
               onClick={() => setShowSearchpage(!showSearchPage)}
             >
               Close
-            </a>
+            </Link>
             <div className="search-books-input-wrapper">
               <input
                 type="text"
