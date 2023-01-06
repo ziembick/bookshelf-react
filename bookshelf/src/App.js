@@ -105,23 +105,13 @@ function App() {
                 )}
                 onMoveBook={moveBook}
               />
-              <div className="bookshelf">
-                <h2 className="bookshelf-title">Want to Read</h2>
-                <div className="bookshelf-books">
-                  <ol className="books-grid">
-                    {books
-                      .filter((book) => book.shelf === "wantToRead")
-                      .map((book) => (
-                        <Book
-                          key={book.id}
-                          book={book}
-                          shelf={book.shelf}
-                          onMoveBook={moveBook}
-                        />
-                      ))}
-                  </ol>
-                </div>
-              </div>
+              <BookShelf
+                shelfTitle="Want to Read"
+                books={books.filter(
+                  (book) => book.shelf === "wanToRead"
+                )}
+                onMoveBook={moveBook}
+              />
               <div className="bookshelf">
                 <h2 className="bookshelf-title">Read</h2>
                 <div className="bookshelf-books">
