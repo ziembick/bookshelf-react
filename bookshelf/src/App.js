@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import Book from "./Book";
 import * as BooksAPI from "./BooksAPI";
+import { Link } from "react-router-dom";
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -149,7 +150,7 @@ function App() {
             </div>
           </div>
           <div className="open-search">
-            <a onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</a>
+            <Link onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</Link>
           </div>
         </div>
       )}
