@@ -150,7 +150,7 @@ function App() {
             </div>
           </div>
           <div className="open-search">
-            <Link onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</Link>
+            <Link to="/search" onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</Link>
           </div>
         </div>
       )}
