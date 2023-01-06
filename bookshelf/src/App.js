@@ -107,9 +107,7 @@ function App() {
               />
               <BookShelf
                 shelfTitle="Want to Read"
-                books={books.filter(
-                  (book) => book.shelf === "wanToRead"
-                )}
+                books={books.filter((book) => book.shelf === "wantToRead")}
                 onMoveBook={moveBook}
               />
               <BookShelf
