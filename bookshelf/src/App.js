@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Book from "./Book";
 import * as BooksAPI from "./BooksAPI";
 import { Link } from "react-router-dom";
-import Bookshelf from "./BookShelf";
+import BookShelf from "./BookShelf";
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -62,7 +62,8 @@ function App() {
       {showSearchPage ? (
         <div className="search-books">
           <div className="search-books-bar">
-            <Link to="/books"
+            <Link
+              to="/books"
               className="close-search"
               onClick={() => setShowSearchpage(!showSearchPage)}
             >
@@ -97,23 +98,13 @@ function App() {
           </div>
           <div className="list-books-content">
             <div>
-              <div className="bookshelf">
-                <h2 className="bookshelf-title">Currently Reading</h2>
-                <div className="bookshelf-books">
-                  <ol className="books-grid">
-                    {books
-                      .filter((book) => book.shelf === "currentlyReading")
-                      .map((book) => (
-                        <Book
-                          key={book.id}
-                          book={book}
-                          shelf={book.shelf}
-                          onMoveBook={moveBook}
-                        />
-                      ))}
-                  </ol>
-                </div>
-              </div>
+              <BookShelf
+                shelfTitle="Currently Reading"
+                books={books.filter(
+                  (book) => book.shelf === "currentlyReading"
+                )}
+                onMoveBook={moveBook}
+              />
               <div className="bookshelf">
                 <h2 className="bookshelf-title">Want to Read</h2>
                 <div className="bookshelf-books">
@@ -151,7 +142,12 @@ function App() {
             </div>
           </div>
           <div className="open-search">
-            <Link to="/search" onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</Link>
+            <Link
+              to="/search"
+              onClick={() => setShowSearchpage(!showSearchPage)}
+            >
+              Add a book
+            </Link>
           </div>
         </div>
       )}
