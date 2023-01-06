@@ -6,19 +6,19 @@ import * as BooksAPI from "./BooksAPI";
 function App() {
   const [books, setBooks] = useState([]);
 
-   useEffect(() => {
+  useEffect(() => {
     const getBooks = async () => {
-      const res = await BooksAPI.getAll()
+      const res = await BooksAPI.getAll();
       res.forEach((book) => {
-        const shelf = localStorage.getItem(book.id)
+        const shelf = localStorage.getItem(book.id);
         if (shelf) {
-          book.shelf = shelf
+          book.shelf = shelf;
         }
-      })
-      setBooks(res)
-    }
-    getBooks()
-   }, [])
+      });
+      setBooks(res);
+    };
+    getBooks();
+  }, []);
 
   const [query, setQuery] = useState("");
 
@@ -27,9 +27,13 @@ function App() {
   };
 
   const showBooks =
-  query === ""
-    ? books
-    : books.filter((c) => c.title.toLowerCase().includes(query) || c.authors.join(', ').toLowerCase().includes(query));
+    query === ""
+      ? books
+      : books.filter(
+          (c) =>
+            c.title.toLowerCase().includes(query) ||
+            c.authors.join(", ").toLowerCase().includes(query)
+        );
 
   function moveBook(book, shelf) {
     setBooks((prevBooks) =>
@@ -40,14 +44,14 @@ function App() {
         return b;
       })
     );
-    localStorage.setItem(book.id, shelf)
+    localStorage.setItem(book.id, shelf);
   }
 
   useEffect(() => {
     books.forEach((book) => {
-      localStorage.setItem(book.id, book.shelf)
-    })
-  }, [books])
+      localStorage.setItem(book.id, book.shelf);
+    });
+  }, [books]);
 
   const [showSearchPage, setShowSearchpage] = useState(false);
 
