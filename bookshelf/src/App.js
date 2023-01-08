@@ -5,6 +5,7 @@ import * as BooksAPI from "./BooksAPI";
 import { Link } from "react-router-dom";
 import BookShelf from "./BookShelf";
 import SearchBooks from "./SearchBooks";
+import AddBook from "./AddBook";
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -82,14 +83,9 @@ function App() {
               />
             </div>
           </div>
-          <div className="open-search">
-            <Link
-              to="/search"
-              onClick={() => setShowSearchpage(!showSearchPage)}
-            >
-              Add a book
-            </Link>
-          </div>
+          <AddBook 
+          setShowSearchpage={setShowSearchpage}
+          />
         </div>
       )}
     </div>
