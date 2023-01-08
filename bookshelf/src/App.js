@@ -1,8 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-
 import * as BooksAPI from "./BooksAPI";
-import { Link } from "react-router-dom";
 import BookShelf from "./BookShelf";
 import SearchBooks from "./SearchBooks";
 import AddBook from "./AddBook";
