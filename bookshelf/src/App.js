@@ -61,37 +61,13 @@ function App() {
   return (
     <div className="app">
       {showSearchPage ? (
-        <div className="search-books">
-          <div className="search-books-bar">
-            <Link
-              to="/books"
-              className="close-search"
-              onClick={() => setShowSearchpage(!showSearchPage)}
-            >
-              Close
-            </Link>
-            <div className="search-books-input-wrapper">
-              <input
-                type="text"
-                placeholder="Search by title, author, or ISBN"
-                value={query}
-                onChange={(event) => updateQuery(event.target.value)}
-              />
-            </div>
-          </div>
-          <div className="search-books-results">
-            <ol className="books-grid">
-              {showBooks.map((book) => (
-                <Book
-                  key={book.id}
-                  book={book}
-                  shelf={book.shelf}
-                  onMoveBook={moveBook}
-                />
-              ))}
-            </ol>
-          </div>
-        </div>
+        <SearchBooks
+          query={query}
+          setQuery={setQuery}
+          books={books}
+          moveBook={moveBook}
+          setShowSearchpage={setShowSearchpage}
+        />
       ) : (
         <div className="list-books">
           <div className="list-books-title">
