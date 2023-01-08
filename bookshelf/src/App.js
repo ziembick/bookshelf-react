@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import Book from "./Book";
+
 import * as BooksAPI from "./BooksAPI";
 import { Link } from "react-router-dom";
 import BookShelf from "./BookShelf";
@@ -25,18 +25,6 @@ function App() {
 
   const [query, setQuery] = useState("");
 
-  const updateQuery = (query) => {
-    setQuery(query.trim());
-  };
-
-  const showBooks =
-    query === ""
-      ? books
-      : books.filter(
-          (c) =>
-            c.title.toLowerCase().includes(query) ||
-            c.authors.join(", ").toLowerCase().includes(query)
-        );
 
   function moveBook(book, shelf) {
     setBooks((prevBooks) =>
