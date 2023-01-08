@@ -4,6 +4,7 @@ import Book from "./Book";
 import * as BooksAPI from "./BooksAPI";
 import { Link } from "react-router-dom";
 import BookShelf from "./BookShelf";
+import SearchBooks from "./SearchBooks";
 
 function App() {
   const [books, setBooks] = useState([]);
