@@ -1,16 +1,10 @@
 import React from "react";
-import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Book from "./Book";
 
 function SearchBooks({ query, setQuery, books, moveBook }) {
-  useEffect(() => {
-    setQuery("");
-  }, [setQuery]);
-
-  const handleCloseSearch = () => {
-    setShowSearchpage(false);
-  };
-
+ const navigate = useNavigate();
+ 
   return (
     <div className="search-books">
       <div className="search-books-bar">
