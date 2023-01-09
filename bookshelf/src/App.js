@@ -45,15 +45,14 @@ function App() {
 
   return (
     <Routes>
-      {showSearchPage ? (
+      <Route path="/search" element={
         <SearchBooks
           query={query}
           setQuery={setQuery}
           books={books}
           moveBook={moveBook}
-          setShowSearchpage={setShowSearchpage}
         />
-      ) : (
+      }/>
         <div className="list-books">
           <div className="list-books-title">
             <h1>MyReads</h1>
