@@ -53,6 +53,7 @@ function App() {
           moveBook={moveBook}
         />
       }/>
+      <Route path="/" element={
         <div className="list-books">
           <div className="list-books-title">
             <h1>MyReads</h1>
@@ -80,7 +81,7 @@ function App() {
           </div>
           <AddBook />
         </div>
-      )}
+        }/>
      </Routes>
   );
 }
