@@ -25,7 +25,6 @@ function App() {
 
   const [query, setQuery] = useState("");
 
-
   function moveBook(book, shelf) {
     setBooks((prevBooks) =>
       prevBooks.map((b) => {
@@ -44,10 +43,8 @@ function App() {
     });
   }, [books]);
 
-  const [showSearchPage, setShowSearchpage] = useState(false);
-
   return (
-    <div className="app">
+    <Routes>
       {showSearchPage ? (
         <SearchBooks
           query={query}
@@ -82,12 +79,10 @@ function App() {
               />
             </div>
           </div>
-          <AddBook 
-          setShowSearchpage={setShowSearchpage}
-          />
+          <AddBook />
         </div>
       )}
-    </div>
+     </Routes>
   );
 }
 
