@@ -36,4 +36,12 @@ function Book({ book, shelf, onMoveBook }) {
   );
 }
 
+
+Book.propTypes = {
+  book: PropTypes.object.isRequired,
+  shelf: PropTypes.array.isRequired,
+  onMoveBook: PropTypes.func.isRequired,
+}
+
+
 export default Book;
