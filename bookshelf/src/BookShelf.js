@@ -22,4 +22,9 @@ function Bookshelf({ books, onMoveBook, shelfTitle }) {
   );
 }
 
+Bookshelf.propTypes = {
+  books: PropTypes.object.isRequired,
+  
+}
+
 export default Bookshelf;
