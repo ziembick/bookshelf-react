@@ -1,5 +1,6 @@
 import React from "react";
 import Book from "./Book";
+import PropTypes from "prop-types";
 
 function Bookshelf({ books, onMoveBook, shelfTitle }) {
   return (
