@@ -1,26 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Book from "./Book";
 import { useNavigate } from "react-router-dom";
-import * as BooksAPI from "./BooksAPI";
 
 function SearchBooks({ query, setQuery, books, moveBook }) {
  const navigate = useNavigate();
- const [searchResults, setSearchResult] = useState([]);
- const [query, setQuery] = useState("")
-
-
- useEffect(() => {
-  const SearchBooks = async () => {
-    if (query && query.trim()) {
-      const res = await BooksAPI.search(query);
-      if (Array.isArray(res)) setSearchResult(res)
-      else setSearchResult([])
-    } else {
-      setSearchResult([])
-    }
-  };
-  SearchBooks();
-  }, [query])
 
   return (
     <div className="search-books">
@@ -41,8 +24,7 @@ function SearchBooks({ query, setQuery, books, moveBook }) {
       </div>
       <div className="search-books-results">
         <ol className="books-grid">
-          {searchResults &&
-            searchResults
+          {books
             .filter(
               (book) =>
                 book.title.toLowerCase().includes(query) ||
