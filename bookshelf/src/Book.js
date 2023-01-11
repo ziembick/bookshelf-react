@@ -2,6 +2,13 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 function Book({ book, shelf, onMoveBook }) {
+
+  const shelfs = [
+    {
+      
+    }
+  ]
+
   return (
     <li>
       <div className="book">
