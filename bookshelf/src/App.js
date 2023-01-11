@@ -34,7 +34,6 @@ function App() {
         return b;
       })
     );
-    localStorage.setItem(book.id, shelf);
     BooksAPI.update(book, shelf)
   }
 
