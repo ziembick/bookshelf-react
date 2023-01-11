@@ -45,9 +45,11 @@ function Book({ book, shelf, onMoveBook }) {
               <option value="none" disabled>
                 Move to...
               </option>
-              {
-                shelfs.map(opt => <option key={opt.id} value={opt.shelfName}>{opt.shelfDisplayName}</option>)
-              }
+              {shelfs.map((opt) => (
+                <option key={opt.id} value={opt.shelfName}>
+                  {opt.shelfDisplayName}
+                </option>
+              ))}
             </select>
           </div>
         </div>
@@ -59,8 +61,15 @@ function Book({ book, shelf, onMoveBook }) {
 }
 
 Book.propTypes = {
-  book: PropTypes.object.isRequired,
-  shelf: PropTypes.array.isRequired,
+  book: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+    imageLinks: PropTypes.shape({
+      thumbnail: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
+  shelf: PropTypes.oneOf(["currentlyReading", "wantToRead", "read", "none"])
+    .isRequired,
   onMoveBook: PropTypes.func.isRequired,
 };
 
