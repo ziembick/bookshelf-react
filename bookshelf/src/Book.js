@@ -14,6 +14,11 @@ function Book({ book, shelf, onMoveBook }) {
       shelfName: "wantToRead",
       shelfDisplayName: "Want to Read"
     },
+    {
+      id:"3",
+      shelfName: "read",
+      shelfDisplayName: "Read"
+    },
   ]
 
   return (
