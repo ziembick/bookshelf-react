@@ -19,6 +19,12 @@ function Book({ book, shelf, onMoveBook }) {
       shelfName: "read",
       shelfDisplayName: "Read"
     },
+    {
+      id:"4",
+      shelfName: "none",
+      shelfDisplayName: "None"
+    }
+
   ]
 
   return (
