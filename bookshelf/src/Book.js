@@ -5,7 +5,9 @@ function Book({ book, shelf, onMoveBook }) {
 
   const shelfs = [
     {
-      
+      id: "1",
+      shelfName: "currentlyReading",
+      shelfDisplayName: "Currently Reading"
     }
   ]
 
