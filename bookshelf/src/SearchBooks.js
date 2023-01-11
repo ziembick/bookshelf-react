@@ -6,15 +6,21 @@ import * as BooksAPI from "./BooksAPI";
 function SearchBooks({ query, setQuery, books, moveBook }) {
  const navigate = useNavigate();
  const [searchResults, setSearchResult] = useState([]);
+ const [query, setQuery] = useState("")
 
 
  useEffect(() => {
   const SearchBooks = async () => {
-    const res = await BooksAPI.search(query);
-    setSearchResult(res);
+    if (query && query.trim()) {
+      const res = await BooksAPI.search(query);
+      if (Array.isArray(res)) setSearchResult(res)
+      else setSearchResult([])
+    } else {
+      setSearchResult([])
+    }
   };
-  SearchBooks()
- }, [query])
+  SearchBooks();
+  }, [query])
 
   return (
     <div className="search-books">
@@ -35,7 +41,8 @@ function SearchBooks({ query, setQuery, books, moveBook }) {
       </div>
       <div className="search-books-results">
         <ol className="books-grid">
-          {books
+          {searchResults &&
+            searchResults
             .filter(
               (book) =>
                 book.title.toLowerCase().includes(query) ||
