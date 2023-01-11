@@ -8,7 +8,12 @@ function Book({ book, shelf, onMoveBook }) {
       id: "1",
       shelfName: "currentlyReading",
       shelfDisplayName: "Currently Reading"
-    }
+    },
+    {
+      id: "2",
+      shelfName: "wantToRead",
+      shelfDisplayName: "Want to Read"
+    },
   ]
 
   return (
