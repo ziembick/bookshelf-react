@@ -35,6 +35,7 @@ function App() {
       })
     );
     localStorage.setItem(book.id, shelf);
+    BooksAPI.update(book, shelf)
   }
 
   useEffect(() => {
