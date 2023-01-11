@@ -1,31 +1,29 @@
-import React from 'react';
+import React from "react";
 import PropTypes from "prop-types";
 
 function Book({ book, shelf, onMoveBook }) {
-
   const shelfs = [
     {
       id: "1",
       shelfName: "currentlyReading",
-      shelfDisplayName: "Currently Reading"
+      shelfDisplayName: "Currently Reading",
     },
     {
       id: "2",
       shelfName: "wantToRead",
-      shelfDisplayName: "Want to Read"
+      shelfDisplayName: "Want to Read",
     },
     {
-      id:"3",
+      id: "3",
       shelfName: "read",
-      shelfDisplayName: "Read"
+      shelfDisplayName: "Read",
     },
     {
-      id:"4",
+      id: "4",
       shelfName: "none",
-      shelfDisplayName: "None"
-    }
-
-  ]
+      shelfDisplayName: "None",
+    },
+  ];
 
   return (
     <li>
@@ -47,10 +45,9 @@ function Book({ book, shelf, onMoveBook }) {
               <option value="none" disabled>
                 Move to...
               </option>
-              <option value="currentlyReading">Currently Reading</option>
-              <option value="wantToRead">Want to Read</option>
-              <option value="read">Read</option>
-              <option value="none">None</option>
+              {
+                shelfs.map(opt => <option key={opt.id} value={opt.shelfName}>{opt.shelfDisplayName}</option>)
+              }
             </select>
           </div>
         </div>
@@ -61,12 +58,10 @@ function Book({ book, shelf, onMoveBook }) {
   );
 }
 
-
 Book.propTypes = {
   book: PropTypes.object.isRequired,
   shelf: PropTypes.array.isRequired,
   onMoveBook: PropTypes.func.isRequired,
-}
-
+};
 
 export default Book;
