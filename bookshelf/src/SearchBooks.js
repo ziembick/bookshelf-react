@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Book from "./Book";
 import { useNavigate } from "react-router-dom";
+import * as BooksAPI from "./BooksAPI";
 
 function SearchBooks({ query, setQuery, books, moveBook }) {
  const navigate = useNavigate();
+ const [searchResults, setSearchResult] = useState([]);
+
+
+ useEffect(() => {
+  const SearchBooks = async () => {
+    const res = await BooksAPI.search(query);
+    setSearchResult(res);
+  };
+  SearchBooks()
+ }, [query])
 
   return (
     <div className="search-books">
