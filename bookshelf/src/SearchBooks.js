@@ -14,7 +14,13 @@ function SearchBooks({
   const navigate = useNavigate();
 
   const handleSearch = (query, maxResults) => {
-    
+    BooksAPI.search(query, maxResults)
+    .then((res) => {
+      setBooks(res)
+    })
+    .catch((error) => {
+      console.error(error)
+    })
   }
 
   return (
