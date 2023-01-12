@@ -70,4 +70,11 @@ function SearchBooks({
   );
 }
 
+SearchBooks.defaultProps = {
+  setBooks: ()=>{},
+};
+
+
+
+
 export default SearchBooks;
