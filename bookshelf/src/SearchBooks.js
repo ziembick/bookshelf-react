@@ -78,7 +78,8 @@ SearchBooks.defaultProps = {
 SearchBooks.propTypes = {
   query: PropTypes.string.isRequired,
   setQuery: PropTypes.func.isRequired,
-  book
+  books: PropTypes.array.isRequired,
+  setBooks: PropTypes.func.isRequired,
 }
 
 
