@@ -2,15 +2,25 @@ import React from "react";
 import Book from "./Book";
 import { useNavigate } from "react-router-dom";
 
-function SearchBooks({ query, setQuery, books, moveBook }) {
- const navigate = useNavigate();
+function SearchBooks({
+  query,
+  setQuery,
+  books,
+  setBooks,
+  moveBook,
+  maxResults,
+}) {
+  const navigate = useNavigate();
 
   return (
     <div className="search-books">
       <div className="search-books-bar">
-        <button className="close-search" onClick={() => {
-          navigate('/')
-        }}>
+        <button
+          className="close-search"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
           Close
         </button>
         <div className="search-books-input-wrapper">
