@@ -84,6 +84,4 @@ SearchBooks.propTypes = {
   maxResults: PropTypes.number,
 }
 
-
-
 export default SearchBooks;
