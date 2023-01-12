@@ -37,11 +37,6 @@ function App() {
     BooksAPI.update(book, shelf)
   }
 
-  useEffect(() => {
-    books.forEach((book) => {
-      
-    });
-  }, );
 
   return (
     <Routes>
