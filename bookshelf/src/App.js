@@ -13,7 +13,6 @@ function App() {
     const getBooks = async () => {
       const res = await BooksAPI.getAll();
       res.forEach((book) => {
-        const shelf = localStorage.getItem(book.id);
         if (shelf) {
           book.shelf = shelf;
         }
