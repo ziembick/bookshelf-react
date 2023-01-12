@@ -2,6 +2,7 @@ import React from "react";
 import Book from "./Book";
 import { useNavigate } from "react-router-dom";
 import * as BooksAPI from "./BooksAPI";
+import PropTypes from "prop-types";
 
 function SearchBooks({
   query,
@@ -74,6 +75,9 @@ SearchBooks.defaultProps = {
   setBooks: ()=>{},
 };
 
+SearchBooks.propTypes = {
+  query: PropTypes.string.isRe
+}
 
 
 
