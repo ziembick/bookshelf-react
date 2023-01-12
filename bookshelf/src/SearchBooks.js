@@ -40,6 +40,11 @@ function SearchBooks({
             placeholder="Search by title, author, or ISBN"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
+            onKeyUp={(event) => {
+              if (event.key === "Enter") {
+                handleSearch(query, maxResults)
+              }
+            }}
           />
         </div>
       </div>
