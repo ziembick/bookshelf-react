@@ -12,11 +12,6 @@ function App() {
   useEffect(() => {
     const getBooks = async () => {
       const res = await BooksAPI.getAll();
-      res.forEach((book) => {
-        if (shelf) {
-          book.shelf = shelf;
-        }
-      });
       setBooks(res);
     };
     getBooks();
