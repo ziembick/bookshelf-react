@@ -39,7 +39,7 @@ function App() {
 
   useEffect(() => {
     books.forEach((book) => {
-      localStorage.setItem(book.id, book.shelf);
+      
     });
   }, [books]);
 
