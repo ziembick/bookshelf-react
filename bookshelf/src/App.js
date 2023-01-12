@@ -41,7 +41,7 @@ function App() {
     books.forEach((book) => {
       
     });
-  }, [books]);
+  }, );
 
   return (
     <Routes>
