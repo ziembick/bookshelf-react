@@ -81,6 +81,7 @@ SearchBooks.propTypes = {
   books: PropTypes.array.isRequired,
   setBooks: PropTypes.func.isRequired,
   moveBook: PropTypes.func.isRequired,
+  maxResults: PropTypes.number,
 }
 
 
