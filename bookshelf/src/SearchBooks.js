@@ -1,6 +1,7 @@
 import React from "react";
 import Book from "./Book";
 import { useNavigate } from "react-router-dom";
+import * as BooksAPI from "./BooksAPI";
 
 function SearchBooks({
   query,
@@ -11,6 +12,10 @@ function SearchBooks({
   maxResults,
 }) {
   const navigate = useNavigate();
+
+  const handleSearch = (query, maxResults) => {
+    
+  }
 
   return (
     <div className="search-books">
